@@ -1,0 +1,79 @@
+[
+    {
+      "id": "user_query_001",
+      "question": "How do I create a ChromaDB vector store in LangChain?",
+      "docs": [
+        {
+          "title": "ChromaDB Integration",
+          "content": "LangChain provides a simple API for working with ChromaDB. You can create a vector store by..."
+        },
+        {
+          "title": "Vector Stores",
+          "content": "ChromaDB is one of many vector stores supported by LangChain..."
+        }
+      ],
+      "answer": "To create a ChromaDB vector store in LangChain, you first need to install the required packages:\n\npip install langchain chromadb\n\nThen you can use it like this:\n\nfrom langchain.vectorstores import Chroma\nfrom langchain.embeddings import OpenAIEmbeddings\n\nembeddings = OpenAIEmbeddings()\ndb = Chroma.from_texts([\"text1\", \"text2\"], embeddings)\n\nThis creates a new ChromaDB instance with your texts embedded using OpenAI's embeddings.",
+      "grade": 4,
+      "grader": "automated",
+      "feedback": "The answer provides the basic setup but doesn't explain the importance of the persistence directory or how to query the database."
+    },
+    {
+      "id": "user_query_002",
+      "question": "What's the difference between ChatOllama and Ollama?",
+      "docs": [
+        {
+          "title": "Ollama Models",
+          "content": "Ollama is a framework for running LLMs locally..."
+        },
+        {
+          "title": "ChatOllama",
+          "content": "ChatOllama is a LangChain chat model wrapper for Ollama..."
+        }
+      ],
+      "answer": "ChatOllama is a LangChain chat model wrapper for the Ollama framework. Ollama itself is a framework for running large language models locally on your machine. The main difference is that ChatOllama provides integration with LangChain's ecosystem, allowing you to use Ollama models within LangChain applications and chains.",
+      "grade": 9,
+      "grader": "human",
+      "feedback": "Excellent explanation of the relationship between the two."
+    },
+    {
+      "id": "user_query_003",
+      "question": "How do I implement RAG with LangGraph?",
+      "docs": null,
+      "answer": "To implement RAG (Retrieval Augmented Generation) with LangGraph, you would create a graph with nodes for retrieval and generation. First, define your state, then create nodes for document retrieval, context preparation, and generation. Connect these in a flow where retrieval happens first, followed by generation that uses the retrieved context.",
+      "grade": 3,
+      "grader": "automated",
+      "feedback": "The answer is too vague and doesn't provide concrete implementation details or code examples."
+    },
+    {
+      "id": "user_query_004",
+      "question": "Best practices for prompt engineering with LangChain?",
+      "docs": [
+        {
+          "title": "Prompt Templates",
+          "content": "LangChain provides several ways to create and manage prompts..."
+        },
+        {
+          "title": "Prompt Engineering Guide",
+          "content": "When creating prompts, it's important to consider..."
+        }
+      ],
+      "answer": "Some best practices for prompt engineering with LangChain include:\n1. Use PromptTemplates to parameterize prompts\n2. Provide clear instructions in your prompts\n3. Use few-shot examples for complex tasks\n4. Consider using structured output parsers\n5. Test different prompt variations\n\nLangChain's PromptTemplate class makes it easy to create reusable prompts with variables.",
+      "grade": 7,
+      "grader": "automated",
+      "feedback": "Good overview but could include more specific examples."
+    },
+    {
+      "id": "user_query_005",
+      "question": "How to debug LangChain chains?",
+      "docs": [
+        {
+          "title": "Debugging in LangChain",
+          "content": "LangChain provides several tools for debugging chains..."
+        }
+      ],
+      "answer": "To debug LangChain chains, you can use the LangChain debug feature by setting the environment variable LANGCHAIN_TRACING=true. This enables the LangChain debugging UI. You can also use langchain.debug=True to see detailed outputs in your console. For more sophisticated tracing, LangSmith provides comprehensive debugging and monitoring capabilities.",
+      "grade": null,
+      "grader": null,
+      "feedback": null
+    }
+  ]
