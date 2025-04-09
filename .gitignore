@@ -219,3 +219,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 module-6/deployment/docker-compose.yml
+
+# Ignore all .pckl files
+*.pckl
+
+# Ignore LangGraph API directory
+.langgraph_api/
