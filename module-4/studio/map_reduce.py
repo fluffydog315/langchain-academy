@@ -42,10 +42,13 @@ class Joke(BaseModel):
     joke: str
 
 def generate_joke(state: JokeState):
+    #.format => Assign value to the variable 
     prompt = joke_prompt.format(subject=state["subject"])
     response = model.with_structured_output(Joke).invoke(prompt)
     return {"jokes": [response.joke]}
 
+#API Reference
+# https://python.langchain.com/api_reference/openai/chat_models/langchain_openai.chat_models.base.ChatOpenAI.html#langchain_openai.chat_models.base.ChatOpenAI
 def best_joke(state: OverallState):
     jokes = "\n\n".join(state["jokes"])
     prompt = best_joke_prompt.format(topic=state["topic"], jokes=jokes)
@@ -56,6 +59,8 @@ def continue_to_jokes(state: OverallState):
     return [Send("generate_joke", {"subject": s}) for s in state["subjects"]]
 
 # Construct the graph: here we put everything together to construct our graph
+#API Reference
+#https://langchain-ai.github.io/langgraph/reference/graphs/#langgraph.graph.graph.CompiledGraph.astream
 graph_builder = StateGraph(OverallState)
 graph_builder.add_node("generate_topics", generate_topics)
 graph_builder.add_node("generate_joke", generate_joke)

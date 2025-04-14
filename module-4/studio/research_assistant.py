@@ -379,8 +379,8 @@ def initiate_all_interviews(state: ResearchGraphState):
     """ Conditional edge to initiate all interviews via Send() API or return to create_analysts """    
 
     # Check if human feedback
-    human_analyst_feedback=state.get('human_analyst_feedback','approve')
-    if human_analyst_feedback.lower() != 'approve':
+    human_analyst_feedback=state.get('human_analyst_feedback','good')
+    if human_analyst_feedback.lower() != 'good':
         # Return to create_analysts
         return "create_analysts"
 
