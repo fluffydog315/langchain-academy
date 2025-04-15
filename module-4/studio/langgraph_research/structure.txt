@@ -1,0 +1,16 @@
+langgraph_research/
+├── __init__.py
+├── config.py          # Contains LLM configuration and all prompt templates
+├── main.py            # Entry point that creates and returns the full graph
+├── graphs/            # Directory with graph definitions
+│   ├── __init__.py
+│   ├── interview_graph.py  # Contains the interview subgraph
+│   └── research_graph.py   # Contains the main research graph
+├── models/            # Directory with data models
+│   ├── __init__.py
+│   └── schemas.py     # Contains all the schema classes and type definitions
+└── nodes/             # Directory with node functions
+    ├── __init__.py
+    ├── analyst_nodes.py    # Logic for analyst creation and management
+    ├── interview_nodes.py  # Logic for conducting interviews and searches
+    └── report_nodes.py     # Logic for report generation
